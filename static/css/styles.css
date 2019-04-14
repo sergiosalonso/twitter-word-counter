@@ -1,0 +1,21 @@
+* {
+  font-family: 'Nunito', sans-serif;
+
+}
+body{
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+}
+.error{
+  color:red;
+}
+#title{
+
+  margin-top: 10%;
+
+}
+#title, #user-form{
+  text-align: center;
+}
+.{
+
+}
