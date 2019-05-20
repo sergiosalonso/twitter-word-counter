@@ -15,6 +15,9 @@ class WordCount(object):
         else:
             raise TypeError("Language must be a str object.")
 
+    def remove_ampersand(self, input_text):
+        return re.sub(r'&amp;','', input_text)
+
     def remove_punctuation(self, input_text):
         # Make translation table, remove punctuation
         return input_text.translate(str.maketrans('', '', string.punctuation))
@@ -57,6 +60,7 @@ class WordCount(object):
             raise TypeError("input_text must be a str object.")
 
         else:
+            input_text=self.remove_ampersand(input_text)
             input_text=self.remove_mentions(input_text)
             input_text=self.remove_hashtags(input_text)
             input_text=self.remove_urls(input_text)

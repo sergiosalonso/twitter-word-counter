@@ -10,8 +10,11 @@
 
 
   <h2 class="error">{{exception}}</h2>
-  {%for tweet in word_counter %}
-    <h5>{{tweet}}</h5>
+  {%for word, tweets in word_tweets.items %}
+    <h5>{{word}}</h5>
+    {% for tweet in tweets %}
+      <p>{{tweet}}</p>
+    {% endfor %}
   {% endfor %}
 
 {%endblock%}
