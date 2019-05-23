@@ -1,3 +1,4 @@
+from  selenium.common.exceptions import NoSuchElementException
 
 @given('we are connected to the page')
 def step(context):
@@ -41,9 +42,13 @@ def step(context):
 def step(context):
     try:
         elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
-    except:
-        return
-    assert True == False
+        exception = None
+    except Exception as ex:
+        elem = None
+        exception = ex
+
+    assert isinstance(exception, NoSuchElementException)
+    #assertRaises(NoSuchElementException, context.browser.find_element_by_xpath("/html/body/div/h5[1]"))
 
 @given('we have searched for a twitter account')
 def step(context):
