@@ -21,4 +21,5 @@ Test automation
 
 Execute the tests <br />
 
+`python manage.py test word_counter/tests/`
 `python manage.py behave`
