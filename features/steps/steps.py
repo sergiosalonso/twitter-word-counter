@@ -16,7 +16,7 @@ def step(context):
 def step(context):
     elem = context.browser.find_element_by_name("twitter_user")
     elem.clear()
-    elem.send_keys("perezreverte")
+    elem.send_keys("realDonaldTrump")
 
 @when('we click the execute button')
 def step(context):
@@ -31,7 +31,7 @@ def step(context):
 def step(context):
     elem = context.browser.find_element_by_name("twitter_user")
     elem.clear()
-    elem.send_keys("perezreverteasdfgh")
+    elem.send_keys("realDonaldTrumpasdfgh")
 
 @then('we get an error message')
 def step(context):
@@ -54,7 +54,7 @@ def step(context):
 def step(context):
     context.browser.get("http://127.0.0.1:8000/")
     elem = context.browser.find_element_by_name("twitter_user")
-    elem.send_keys("perezreverte")
+    elem.send_keys("realDonaldTrump")
     elem = context.browser.find_element_by_xpath('//*[@id="user-form"]/input[3]')
     elem.click()
 

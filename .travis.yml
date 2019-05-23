@@ -1,10 +1,25 @@
+sudo: required
+build: trusty
 dist: xenial   # required for Python >= 3.7
 language: python
 python:
   - "3.7"
+addons:
+  chrome: stable
+
 install:
+  - wget -N https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip -P ~/
+  - unzip ~/chromedriver_linux64.zip -d ~/
+  - rm ~/chromedriver_linux64.zip
+  - sudo mv -f ~/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   - pip install -r requirements.txt
 
+
 script:
+  - google-chrome-stable --version
+  - whereis google-chrome-stable
+  - whereis chromedriver
   - python manage.py test word_counter/tests/
   - python manage.py behave
