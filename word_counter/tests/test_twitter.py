@@ -1,5 +1,5 @@
-from word_counter.read_tweets import get_tweets
 from django.test import TestCase
+from word_counter.read_tweets import get_tweets
 from unittest.mock import patch, Mock
 from datetime import datetime
 from collections import namedtuple

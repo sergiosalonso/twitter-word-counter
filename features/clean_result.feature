@@ -1,6 +1,6 @@
 Feature: Reset the results
 
-  Scenario: we have done a execution
+  Scenario: we have done an execution
      Given we have searched for a twitter account
       When we click the clean button
       Then the page gets cleaned up
