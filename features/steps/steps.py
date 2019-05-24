@@ -1,22 +1,24 @@
 from  selenium.common.exceptions import NoSuchElementException
+from behave import given, when, then
 
 @given('we are connected to the page')
 def step(context):
-   context.browser.get('http://127.0.0.1:8000/')
+    context.browser.get('http://127.0.0.1:8000/')
 
 @when('we are connected to the page')
 def step(context):
-   context.browser.get('http://127.0.0.1:8000/')
+    context.browser.get('http://127.0.0.1:8000/')
 
 @then('it should have a title "Word Counter"')
 def step(context):
-   assert context.browser.title == "Word Counter"
+    print(context.browser.title)
+    assert context.browser.title == "Word Counter"
 
 @when('we introduce a valid twitter account')
 def step(context):
     elem = context.browser.find_element_by_name("twitter_user")
     elem.clear()
-    elem.send_keys("perezreverte")
+    elem.send_keys("realDonaldTrump")
 
 @when('we click the execute button')
 def step(context):
@@ -31,7 +33,7 @@ def step(context):
 def step(context):
     elem = context.browser.find_element_by_name("twitter_user")
     elem.clear()
-    elem.send_keys("perezreverteasdfgh")
+    elem.send_keys("realDonaldTrumpasdfgh")
 
 @then('we get an error message')
 def step(context):
@@ -53,18 +55,19 @@ def step(context):
 def step(context):
     context.browser.get("http://127.0.0.1:8000/")
     elem = context.browser.find_element_by_name("twitter_user")
-    elem.send_keys("perezreverte")
+    elem.send_keys("realDonaldTrump")
     elem = context.browser.find_element_by_xpath('//*[@id="user-form"]/input[3]')
     elem.click()
 
 @when('we click the clean button')
 def step(context):
-   elem = context.browser.find_element_by_xpath('//*[@id="user-form"]/a/button')
-   elem.click()
+    elem = context.browser.find_element_by_xpath('//*[@id="user-form"]/a/button')
+    elem.click()
 
 @then('the page gets cleaned up')
 def step(context):
     assert "User not found try with another." not in context.browser.page_source
+<<<<<<< HEAD
     try:
         elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
         exception = None
@@ -72,3 +75,12 @@ def step(context):
         elem = None
         exception = ex
     assert isinstance(exception, NoSuchElementException)
+=======
+
+    try:
+        elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
+    except:
+        return
+
+    assert True == False
+>>>>>>> e5533ea3c821ff618351794fa997cd64b7837c56

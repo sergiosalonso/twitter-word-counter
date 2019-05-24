@@ -1,10 +1,19 @@
+sudo: required
+build: trusty
 dist: xenial   # required for Python >= 3.7
 language: python
 python:
   - "3.7"
+addons:
+  chrome: stable
+
 install:
   - pip install -r requirements.txt
+before_script:
+  python manage.py runserver &
 
 script:
+  - google-chrome-stable --version
+  - whereis google-chrome-stable
   - python manage.py test word_counter/tests/
   - python manage.py behave

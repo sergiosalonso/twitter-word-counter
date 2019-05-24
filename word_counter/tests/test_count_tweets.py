@@ -1,4 +1,3 @@
-import pytest
 from word_counter.word_counter_skeleton import WordCount
 from word_counter.read_tweets import get_tweets
 from word_counter.views import get_tweets_with_words
