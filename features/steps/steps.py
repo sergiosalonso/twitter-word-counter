@@ -67,7 +67,6 @@ def step(context):
 @then('the page gets cleaned up')
 def step(context):
     assert "User not found try with another." not in context.browser.page_source
-<<<<<<< HEAD
     try:
         elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
         exception = None
@@ -75,12 +74,3 @@ def step(context):
         elem = None
         exception = ex
     assert isinstance(exception, NoSuchElementException)
-=======
-
-    try:
-        elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
-    except:
-        return
-
-    assert True == False
->>>>>>> e5533ea3c821ff618351794fa997cd64b7837c56
