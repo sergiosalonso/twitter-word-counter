@@ -1,16 +1,18 @@
 from  selenium.common.exceptions import NoSuchElementException
+from behave import given, when, then
 
 @given('we are connected to the page')
 def step(context):
-   context.browser.get('http://127.0.0.1:8000/')
+    context.browser.get('http://127.0.0.1:8000/')
 
 @when('we are connected to the page')
 def step(context):
-   context.browser.get('http://127.0.0.1:8000/')
+    context.browser.get('http://127.0.0.1:8000/')
 
 @then('it should have a title "Word Counter"')
 def step(context):
-   assert context.browser.title == "Word Counter"
+    print(context.browser.title)
+    assert context.browser.title == "Word Counter"
 
 @when('we introduce a valid twitter account')
 def step(context):
@@ -60,15 +62,16 @@ def step(context):
 
 @when('we click the clean button')
 def step(context):
-   elem = context.browser.find_element_by_xpath('//*[@id="user-form"]/a/button')
-   elem.click()
+    elem = context.browser.find_element_by_xpath('//*[@id="user-form"]/a/button')
+    elem.click()
 
 @then('the page gets cleaned up')
 def step(context):
-   assert "User not found try with another." not in context.browser.page_source
+    assert "User not found try with another." not in context.browser.page_source
 
-   try:
-       elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
-   except:
-       return
-   assert True == False
+    try:
+        elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
+    except:
+        return
+
+    assert True == False
