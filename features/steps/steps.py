@@ -48,7 +48,6 @@ def step(context):
         exception = ex
 
     assert isinstance(exception, NoSuchElementException)
-    #assertRaises(NoSuchElementException, context.browser.find_element_by_xpath("/html/body/div/h5[1]"))
 
 @given('we have searched for a twitter account')
 def step(context):
@@ -65,10 +64,11 @@ def step(context):
 
 @then('the page gets cleaned up')
 def step(context):
-   assert "User not found try with another." not in context.browser.page_source
-
-   try:
-       elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
-   except:
-       return
-   assert True == False
+    assert "User not found try with another." not in context.browser.page_source
+    try:
+        elem = context.browser.find_element_by_xpath("/html/body/div/h5[1]")
+        exception = None
+    except Exception as ex:
+        elem = None
+        exception = ex
+    assert isinstance(exception, NoSuchElementException)
