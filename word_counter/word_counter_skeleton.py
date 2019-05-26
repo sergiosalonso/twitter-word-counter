@@ -34,7 +34,7 @@ class WordCount(object):
         return re.sub(r'#\w+','', input_text)
 
     def remove_rt(self, input_text):
-        return re.sub(r'rt','', input_text)
+        return re.sub(r'\brt\b','', input_text)
 
     def remove_digits(self, input_text):
         return re.sub(r'\d+','', input_text)
@@ -78,4 +78,4 @@ class WordCount(object):
             list_words=word_tokenize(clean_text)
             k_repeated_words=self.word_counter(list_words)[0:number_of_words]
             #get the frequency in %
-            return [(i[0],round((i[1]/words_number)*100,2)) for i in k_repeated_words] 
+            return [(i[0],round((i[1]/words_number)*100,2)) for i in k_repeated_words]
