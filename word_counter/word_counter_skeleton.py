@@ -49,6 +49,9 @@ class WordCount(object):
         clean_words = [w for w in words if w not in  stopwords_list and len(w)>1]
         return ' '.join(clean_words)
 
+    def get_number_of_words(self, input_text):
+        return len(str(input_text).split())
+
     def word_counter(self, list_of_words):
         count_vectorizer = CountVectorizer()
         vectorized_words= count_vectorizer.fit_transform(list_of_words)
@@ -71,6 +74,8 @@ class WordCount(object):
             input_text=self.to_lower(input_text)
             input_text=self.remove_rt(input_text)
             clean_text=self.remove_stopwords(input_text)
+            words_number=self.get_number_of_words(clean_text)
             list_words=word_tokenize(clean_text)
-
-            return self.word_counter(list_words)[0:number_of_words]
+            k_repeated_words=self.word_counter(list_words)[0:number_of_words]
+            #get the frequency in %
+            return [(i[0],round((i[1]/words_number)*100,2)) for i in k_repeated_words] 

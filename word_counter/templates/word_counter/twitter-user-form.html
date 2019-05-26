@@ -11,7 +11,7 @@
 
   <h2 class="error">{{exception}}</h2>
   {%for word, tweets in word_tweets.items %}
-    <h5>{{word}}</h5>
+    <h5><b>{{word.0}}, {{word.1}} % </b></h5>
     {% for tweet in tweets %}
       <p>{{tweet}}</p>
     {% endfor %}

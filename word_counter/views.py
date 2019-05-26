@@ -20,8 +20,8 @@ def get_tweets_with_words(text, tweets):
     k_repeated_words=WordCount(language="english").transform(text, 10)
     word_tweets_dict={}
     for word in k_repeated_words:
-        word_tweets_dict[str(word)]=[]
+        word_tweets_dict[word]=[]
         for tweet in tweets:
             if word[0] in tweet.lower():
-                word_tweets_dict[str(word)].append(tweet)
+                word_tweets_dict[word].append(tweet)
     return word_tweets_dict
