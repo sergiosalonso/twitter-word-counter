@@ -59,14 +59,14 @@ class TestWordCounter(TestCase):
             WordCount().word_counter([])
 
     def test_cleaned_word_counter(self):
-        self.assertEqual(WordCount().transform("3L niño 23 juega, niÑo bonito 432 ella salt0. Y niño salt3 juega baila"), [('niño', 3), ('juega', 2), ('salt', 2), ('baila', 1), ('bonito', 1)])
+        self.assertEqual(WordCount().transform("3L niño 23 juega, niÑo bonito 432 ella salt0. Y niño salt3 juega baila"), [('niño', 33.33), ('juega', 22.22), ('salt', 22.22), ('baila', 11.11), ('bonito', 11.11)])
 
     def test_cleaned_word_counter_only_numbers(self):
         with self.assertRaises(ValueError):
             WordCount().transform("2323378264378 3084298239482")
 
     def test_cleaned_word_counter_numbers_with_words(self):
-        self.assertEqual(WordCount().transform("2323pisto264378 30842a77878 3jamon482"), [('jamon',1), ('pisto',1)])
+        self.assertEqual(WordCount().transform("2323pisto264378 30842a77878 3jamon482"), [('jamon', 50.0), ('pisto', 50.0)])
 
     def test_cleaned_word_counter_only_punctuation(self):
         with self.assertRaises(ValueError):
