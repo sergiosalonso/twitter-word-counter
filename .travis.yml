@@ -11,7 +11,6 @@ install:
   - pip install -r requirements.txt
 before_script:
   python manage.py runserver &
-
 script:
   - google-chrome-stable --version
   - whereis google-chrome-stable
