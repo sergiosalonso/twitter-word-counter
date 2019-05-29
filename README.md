@@ -23,3 +23,8 @@ Execute the tests <br />
 
 `python manage.py test word_counter/tests/` <br />
 `python manage.py behave` <br />
+
+Members
+===========
+Sergio Alonso <br />
+Julio Ballesteros <br />
